@@ -8,9 +8,7 @@ import FogEffect from './Components/Modules/FogEffect/FogEffect';
 
 // import { useAnimationFrame } from './hooks/useAnimationFrame';
 function App() {
-  const [ui, setUi] = useState({
-    isOn: false
-  });
+  const [ui, setUi] = useState(false);
 
   return (
     <div className="App">
@@ -25,10 +23,12 @@ function App() {
         <hr />
       </header>
 
+
+      <button onClick={() => setUi(prev => !prev)}>click</button>
       <FogEffect
         filterID="title-filter"
         delay={200}
-        animation="fadeIn">
+        animation={ui === true ? "fadeIn" : ""}>
         Foggy Fade
       </FogEffect>
 
