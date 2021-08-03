@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { animated, useTrail } from 'react-spring';
 
-const items = [ 0.5, 0.3, 0.2, 0.7, 1 ];
+const items = [0.5, 0.3, 0.2, 0.7, 1];
 
 const Trail = () => {
-  const [ on, toggle ] = useState(false);
+  const [on, toggle] = useState(false);
   const trail = useTrail(items.length, {
     opacity: on ? 0 : 1,
     transform: on ? 'scale(0.3)' : 'scale(1)'
