@@ -5,7 +5,7 @@ import FogEffect from './Components/Modules/FogEffect/FogEffect';
 import { DrawerWrapper } from './Components/UserInterface';
 import Boxes_Fade_UseSprings from './Components/Boxes_Fade_UseSprings'
 import Trail from './Components/Trail'
-import Transition from './Components/TransitionComponent2Component'
+import TransitionBetweenComponents from './Components/TransitionComponent2Component'
 import ChainBoxes from './Components/ChainBoxes'
 
 // import { useAnimationFrame } from './hooks/useAnimationFrame';
@@ -41,20 +41,19 @@ function App() {
       {/* <Granular /> */}
 
       {/* <SVGFilter /> */}
-      <div
-        className="example-container"
-      >
-        <span>Fading boxes</span>
-        <Boxes_Fade_UseSprings />
-      </div>
-      <div
-        style={{
-          width: '100vw',
-          height: '100vh',
-          backgroundColor: '#333'
-        }}
-      >
-        <Trail />
+      <div className="full-width-height" style={{ display: "flex" }}>
+        <div
+          className="example-container-50"
+        >
+          <span>Fading boxes</span>
+          <Boxes_Fade_UseSprings />
+        </div>
+        <div
+          className="example-container-50"
+        >
+          <span>Trailing boxes</span>
+          <Trail />
+        </div>
       </div>
 
       <div
@@ -64,7 +63,10 @@ function App() {
           backgroundColor: '#44333a'
         }}
       >
-        <Transition />
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <TransitionBetweenComponents />
+        </div>
+
       </div>
 
       <div

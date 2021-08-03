@@ -77,6 +77,14 @@ header > div {
   color: rgb(93, 127, 230);
   padding: 1rem;
 }
+
+.example-container-50{
+  box-sizing: border-box;
+  width: 50%;
+  background-color: rgb(36, 31, 34);
+  color: rgb(93, 127, 230);
+  padding: 1rem;
+}
 .example-container > span {
   margin: 0 1rem;
   font-size: 2rem;
