@@ -5,14 +5,24 @@ import FogEffect from './Components/Modules/FogEffect/FogEffect';
 import { DrawerWrapper } from './Components/UserInterface';
 import Boxes_Fade_UseSprings from './Components/Boxes_Fade_UseSprings'
 import Boxes_Animate_UseTrail from './Components/Boxes_Animate_UseTrail'
+import TransitionTrailChainBoxes from './Components/TransitionTrailChainBoxes'
 import TransitionBetweenComponents from './Components/TransitionComponent2Component'
 import ChainBoxes from './Components/ChainBoxes'
+import TransitionBoxes from './Components/TransitionBoxes'
+
+import TextTransitionFromColinrTech from './Components/TransitionTrailChainNew/TransitionTrailChainBoxes'
+import BoxExplosionChain from './Components/BoxExplosionChain/BoxExplosionChain';
 
 // import { useAnimationFrame } from './hooks/useAnimationFrame';
 function App() {
   const [ui, setUi] = useState({
     isOn: false
   });
+
+
+  const [textTrailMessage, setTextTrailMessage] = useState('')
+  const [textTrailMessageToAnimate, setTextTrailMessageToAnimate] = useState('')
+  const [isTextAnimationOn, setIsTextAnimationOn] = useState(false)
 
   return (
     <div className="App">
@@ -70,14 +80,21 @@ function App() {
       </div>
 
       <div
-        style={{
-          width: '100vw',
-          height: '100vh',
-          backgroundColor: '#333'
-        }}
+        className={"example-container"}
       >
-        <span>Port doesn't work properly in v9, white box should animate width,height. could try transform</span>
         <ChainBoxes />
+      </div>
+      <div
+        className={"example-container"}
+      >
+        <span>TransitionBoxes</span>
+        <TransitionBoxes />
+      </div>
+      <div
+        className={"example-container"}
+      >
+        <span>ChainBox: doesn't work properly in v9...</span>
+        <TransitionTrailChainBoxes />
       </div>
       {/* <div
         style={{
@@ -91,6 +108,31 @@ function App() {
       </div> */}
 
       {/* <Grid /> */}
+
+      <div className="example-container" style={{ color: 'purple' }}>
+
+        <input type="text" value={textTrailMessage} onChange={(e) => setTextTrailMessage(e.target.value)} />
+        <button onClick={() => {
+          setTextTrailMessageToAnimate(textTrailMessage)
+          setIsTextAnimationOn(true)
+
+          setTimeout(() => {
+            setIsTextAnimationOn(false)
+          }, 2000);
+
+        }}>update animation</button>
+
+        {isTextAnimationOn ?
+          <p>true</p> : <p>false</p>
+        }
+
+        <TextTransitionFromColinrTech on={isTextAnimationOn} message={textTrailMessageToAnimate} />
+      </div>
+
+      <div className="example-container">
+        <BoxExplosionChain />
+      </div>
+
     </div>
   );
 }
