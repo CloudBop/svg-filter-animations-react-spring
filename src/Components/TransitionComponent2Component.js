@@ -23,12 +23,12 @@ function TransitionComponent2Component() {
             item ? (
               //
               <animated.h2 key={key} style={props}>
-                Hello
+                What's got four eyes but can't see ?
               </animated.h2>
             ) : (
               //
-              <animated.h2 key={key} style={props}>
-                World
+              <animated.h2 key={key} style={{ textTransform: "uppercase", ...props }}>
+                Mississippi
               </animated.h2>
             )
         )
