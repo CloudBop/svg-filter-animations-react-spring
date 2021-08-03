@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import './App.css';
-import { Water, Granular } from './Components/Modules/';
-import { DrawerWrapper } from './Components/UserInterface';
-import Grid from './Components/Modules/Grid';
-import SVGFilter from './Components/Modules/Granular/SVGFilter';
+import { Water } from './Components/Modules/';
 import FogEffect from './Components/Modules/FogEffect/FogEffect';
+import { DrawerWrapper } from './Components/UserInterface';
+import Boxes_Fade_UseSprings from './Components/Boxes_Fade_UseSprings'
+import Trail from './Components/Trail'
+import Transition from './Components/TransitionComponent2Component'
+import ChainBoxes from './Components/ChainBoxes'
 
 // import { useAnimationFrame } from './hooks/useAnimationFrame';
 function App() {
-  const [ui, setUi] = useState(false);
+  const [ui, setUi] = useState({
+    isOn: false
+  });
 
   return (
     <div className="App">
@@ -34,11 +38,57 @@ function App() {
 
       <Water />
 
-      <Granular />
+      {/* <Granular /> */}
 
       {/* <SVGFilter /> */}
+      <div
+        className="example-container"
+      >
+        <span>Fading boxes</span>
+        <Boxes_Fade_UseSprings />
+      </div>
+      <div
+        style={{
+          width: '100vw',
+          height: '100vh',
+          backgroundColor: '#333'
+        }}
+      >
+        <Trail />
+      </div>
 
-      <Grid />
+      <div
+        style={{
+          width: '100vw',
+          height: '30vh',
+          backgroundColor: '#44333a'
+        }}
+      >
+        <Transition />
+      </div>
+
+      <div
+        style={{
+          width: '100vw',
+          height: '100vh',
+          backgroundColor: '#333'
+        }}
+      >
+        <span>Port doesn't work properly in v9, white box should animate width,height. could try transform</span>
+        <ChainBoxes />
+      </div>
+      {/* <div
+        style={{
+          width: '100vw',
+          height: '100vh',
+          backgroundColor: '#333'
+        }}
+      >
+        <h2>Chained Spring and Trail</h2>
+        <ChainBoxes />
+      </div> */}
+
+      {/* <Grid /> */}
     </div>
   );
 }

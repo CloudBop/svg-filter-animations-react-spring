@@ -1,5 +1,23 @@
+:root {
+  --purp: #524763;
+  --darkPurp: #373142;
+  --xtraPurp: #191324;
+  --grey: #d8d8d8;
+  --teal: #82d8d8;
+  --red: #e54b4b;
+  --black: #333;
+  --black-20: #4f4f4f;
+  --black-40: #828282;
+  --black-60: #bdbdbd;
+  --white-60: #e0e0e0;
+  --white-40: #f2f2f2;
+  --white-20: #f5f4f6;
+  --white: #fff;
+}
+
 .App {
   text-align: center;
+  color: orange;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -49,4 +67,56 @@ header > div {
   to {
     transform: rotate(360deg);
   }
+}
+
+.example-container{
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(36, 31, 34);
+  color: rgb(93, 127, 230);
+  padding: 1rem;
+}
+.example-container > span {
+  margin: 0 1rem;
+  font-size: 2rem;
+}
+
+.box {
+  background: var(--teal);
+  height: 100px;
+  width: 100px;
+  margin: 0 auto;
+}
+
+.boxes-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 20px;
+}
+
+.boxes-grid-two {
+  display: grid;
+  box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.05);
+  grid-template-columns: repeat(4, minmax(100px, 1fr));
+  grid-gap: 20px;
+  padding: 20px;
+  background: white;
+  height: 75vh;
+}
+
+.box-two {
+  background: var(--teal);
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.full-height {
+  height: 100vh;
+}
+
+.full-width-height {
+  height: 100vh;
+  width: 100vw;
 }
