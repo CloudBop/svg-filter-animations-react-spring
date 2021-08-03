@@ -24,8 +24,8 @@ const Boxes = () => {
 
   return (
     <>
-      <button onClick={() => toggleAnimate(p => !p)}>click</button>
       <div className="boxes-grid">
+        <button onClick={() => toggleAnimate(p => !p)}>click</button>
         {/* <Waypoint
         onEnter={() => toggleAnimate(true)} // topOffset="-30%" //
         bottomOffset="50%"
