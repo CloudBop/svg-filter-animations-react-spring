@@ -11,8 +11,8 @@ import ChainBoxes from './Components/ChainBoxes'
 import TransitionBoxes from './Components/TransitionBoxes'
 
 import TextTransitionFromColinrTech from './Components/TransitionTrailChainNew/TransitionTrailChainBoxes'
-import BoxExplosionChain from './Components/BoxExplosionChain/BoxExplosionChain';
-
+import BoxExplosionChain from './Components/OfficialRepoExamples/BoxExplosionChain/BoxExplosionChain';
+import TrailTextExample from './Components/OfficialRepoExamples/TrailTextExample/TrailTextExample'
 // import { useAnimationFrame } from './hooks/useAnimationFrame';
 function App() {
   const [ui, setUi] = useState({
@@ -131,6 +131,12 @@ function App() {
 
       <div className="example-container">
         <BoxExplosionChain />
+      </div>
+
+
+
+      <div className="example-container">
+        <TrailTextExample />
       </div>
 
     </div>
