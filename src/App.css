@@ -85,9 +85,10 @@ header > div {
   color: rgb(93, 127, 230);
   padding: 1rem;
 }
-.example-container > span {
+.example-container > div> span {
   margin: 0 1rem;
   font-size: 2rem;
+  width: 0.5rem;
 }
 
 .box {
@@ -127,4 +128,10 @@ header > div {
 .full-width-height {
   height: 100vh;
   width: 100vw;
+}
+
+
+.box-group-container {
+  width: 20%;
+  height: 20%;
 }
