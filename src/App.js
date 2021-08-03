@@ -13,7 +13,8 @@ import TransitionBoxes from './Components/TransitionBoxes'
 import TextTransitionFromColinrTech from './Components/TransitionTrailChainNew/TransitionTrailChainBoxes'
 import BoxExplosionChain from './Components/OfficialRepoExamples/BoxExplosionChain/BoxExplosionChain';
 import TrailTextExample from './Components/OfficialRepoExamples/TrailTextExample/TrailTextExample'
-import TransitionArray from './Components/OfficialRepoExamples/TransitionArray/TransitionArray'
+import TransitionArray from './Components/OfficialRepoExamples/TransitionsExamplesHooks/TransitionArray'
+import Toggle from './Components/OfficialRepoExamples/TransitionsExamplesHooks/ToggleBetweenComponents';
 // import { useAnimationFrame } from './hooks/useAnimationFrame';
 function App() {
   const [ui, setUi] = useState({
@@ -142,8 +143,17 @@ function App() {
         <TrailTextExample />
       </div>
 
-
-      <TransitionArray />
+      <div className="example-container">
+        <TransitionArray />
+        <div style={{ display: 'flex', flexDirection: "col", justifyContent: "center", alignItems: "center" }}>
+          <span>
+            Toggle Between Components
+          </span>
+          <div>
+            <Toggle />
+          </div>
+        </div>
+      </div>
 
     </div>
   );
