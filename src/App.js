@@ -13,6 +13,7 @@ import TransitionBoxes from './Components/TransitionBoxes'
 import TextTransitionFromColinrTech from './Components/TransitionTrailChainNew/TransitionTrailChainBoxes'
 import BoxExplosionChain from './Components/OfficialRepoExamples/BoxExplosionChain/BoxExplosionChain';
 import TrailTextExample from './Components/OfficialRepoExamples/TrailTextExample/TrailTextExample'
+import TransitionArray from './Components/OfficialRepoExamples/TransitionArray/TransitionArray'
 // import { useAnimationFrame } from './hooks/useAnimationFrame';
 function App() {
   const [ui, setUi] = useState({
@@ -36,6 +37,8 @@ function App() {
         </div>
         <hr />
       </header>
+
+      {/* <TransitionArray /> */}
 
 
       <button onClick={() => setUi(prev => !prev)}>click</button>
@@ -138,6 +141,9 @@ function App() {
       <div className="example-container">
         <TrailTextExample />
       </div>
+
+
+      <TransitionArray />
 
     </div>
   );
