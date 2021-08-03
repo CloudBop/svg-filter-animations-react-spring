@@ -4,7 +4,7 @@ import { Water } from './Components/Modules/';
 import FogEffect from './Components/Modules/FogEffect/FogEffect';
 import { DrawerWrapper } from './Components/UserInterface';
 import Boxes_Fade_UseSprings from './Components/Boxes_Fade_UseSprings'
-import Trail from './Components/Trail'
+import Boxes_Animate_UseTrail from './Components/Boxes_Animate_UseTrail'
 import TransitionBetweenComponents from './Components/TransitionComponent2Component'
 import ChainBoxes from './Components/ChainBoxes'
 
@@ -52,21 +52,21 @@ function App() {
           className="example-container-50"
         >
           <span>Trailing boxes</span>
-          <Trail />
+          <Boxes_Animate_UseTrail />
         </div>
       </div>
 
       <div
         style={{
           width: '100vw',
-          height: '30vh',
-          backgroundColor: '#44333a'
+          height: '20vh',
+          backgroundColor: '#44333a',
+          display: "flex",
+          justifyContent: "center"
+
         }}
       >
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <TransitionBetweenComponents />
-        </div>
-
+        <TransitionBetweenComponents />
       </div>
 
       <div
