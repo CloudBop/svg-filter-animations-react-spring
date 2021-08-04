@@ -5,6 +5,7 @@ const items = [0.5, 0.3, 0.2, 0.7, 1, 9, 89, 56, 90, 543];
 
 const Chain = () => {
   const [on, toggle] = useState(false);
+  // console.log(`on`, on)
   // store refs in component
   const springRef = useSpringRef();
   const { x } = useSpring({
@@ -13,7 +14,7 @@ const Chain = () => {
     x: on ? "100%" : "20%",
     // from: { size: on ? '100%' : '20%' }
     // config: {
-    //   duration: 100
+    //   duration: 2000
     // }
   });
   //
@@ -24,35 +25,34 @@ const Chain = () => {
     ref: transitionRef,
     from: { opacity: 0, transform: 'scale(0)' },
     enter: { opacity: 1, transform: 'scale(1)' },
-    leave: { opacity: 0, transform: 'scale(0)' }
+    leave: { opacity: 0, transform: 'scale(0)' },
+    // expires: 2000
   });
 
-  //
-  useChain(on ? [springRef, transitionRef] : [transitionRef, springRef], [0, 1]);
-  // attempt at mimicking some kind of cb syntax
-  // const myPromise = new Promise((resolve, reject) => {
-  //   setTimeout(() => {
-  //     springRef.start()
-  //     resolve()
-  //   }, 0);
-  // }).then(() => console.log(`object`) // transitionRef.start()
-  // )
-  // useEffect(() => {
-  //   if (on) {
-  //     myPromise.then(t => console.log(t))
-  //     console.log(`OnfireMe`)
-  //     // fireMe.then(() => {
-  //     //   return transitionRef.start()
-  //     // })
+  // this triggers all animations at once
+  // useChain(on ? [springRef, transitionRef] : [transitionRef, springRef], [0, 1]);
+  // 
 
-  //     // .then(() => transitionRef.start())
-  //     // springRef.start()
-  //   } else {
-  //     // springRef.start()
-  //     console.log(`!onfireMe`)
-  //     myPromise.then(t => console.log(t))
-  //   }
-  // }, [on])
+  // useChain mimicry
+  useEffect(() => {
+    // beware async stuff happens here
+    // (async () => { await my be better
+    if (on) {
+      let [promise] = springRef.start()
+      promise.then(() => {
+        transitionRef.start()
+        // setTimeout(()=>, 0)
+      })
+    } else {
+      (function () {
+        let p = transitionRef.start()
+        // assume fifo
+        let finalitem = p.length - 1
+        // prom && prom.
+        p?.[finalitem]?.then(() => springRef.start())
+      }())
+    }
+  }, [on, springRef, transitionRef])
 
   return (
     <div className={'full-height'}>
