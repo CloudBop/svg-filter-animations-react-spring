@@ -33,6 +33,9 @@ function TransitionArray() {
     delay: 200,
     config: config.molasses,
     onRest: () => setItems([]),
+    // doesnt work
+    // sort: (a, b) => a.fig > b.fig,
+    // keys: item => item
   })
 
   useEffect(() => {
@@ -45,7 +48,8 @@ function TransitionArray() {
 
   return (
     <div style={{ display: 'flex', justifyContent: "center", alignItems: "center", height: "200px", width: "100%" }}>
-      {transitions(({ opacity }, item) => (
+      {/* (style, item, transitionObject, sibling position as an (int)) */}
+      {transitions(({ opacity }, item, t, i) => (
         <animated.div
           style={{
             opacity: opacity.to(item.op),
@@ -54,6 +58,7 @@ function TransitionArray() {
               .to(y => `translate3d(0,${y}px,0)`),
           }}>
           {item.fig}
+
         </animated.div>
       ))}
     </div>
@@ -61,3 +66,10 @@ function TransitionArray() {
 }
 
 export default TransitionArray
+
+/**
+The transition function accepts a callback that receives four arguments: the animated values, the item, the Transition object, and the sibling position.
+It returns a React fragment containing every element returned by your callback. As you might assume, elements in the middle of their leave animation need to remain mounted.
+All elements in the fragment are guaranteed to have a key prop, whether or not you define one explicitly. Unkeyed elements will use the ctrl.id from their Transition object.
+For every unique item key, there exists a Transition object. The only time you have access to a Transition object is when it's passed as the 3rd argument of your transition callback.
+ */
