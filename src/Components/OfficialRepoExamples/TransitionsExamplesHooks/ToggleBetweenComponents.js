@@ -11,6 +11,10 @@ export default function Toggle() {
     delay: 200,
     config: config.molasses,
     onRest: () => set(!toggle),
+    //  You must use explicit keys for any item that is an immutable object.
+    // Using explicit keys for mutable objects is unnecessary.🥳
+    // If you're passing a single item to useTransition, you have the option of passing a single key as the key prop.
+    // key: toggle.key,
   })
   return transitions(({ opacity }, item) =>
     item ? (

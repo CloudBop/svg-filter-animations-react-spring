@@ -14,7 +14,9 @@ import TextTransitionFromColinrTech from './Components/TransitionTrailChainNew/T
 import BoxExplosionChain from './Components/OfficialRepoExamples/BoxExplosionChain/BoxExplosionChain';
 import TrailTextExample from './Components/OfficialRepoExamples/TrailTextExample/TrailTextExample'
 import TransitionArray from './Components/OfficialRepoExamples/TransitionsExamplesHooks/TransitionArray'
+import OnMountTransitions from './Components/OfficialRepoExamples/TransitionsExamplesHooks/OnMountTransitions'
 import Toggle from './Components/OfficialRepoExamples/TransitionsExamplesHooks/ToggleBetweenComponents';
+import ItemsTransition from './Components/OfficialRepoExamples/TransitionsExamplesHooks/SingleItemTransition';
 // import { useAnimationFrame } from './hooks/useAnimationFrame';
 function App() {
   const [ui, setUi] = useState({
@@ -145,12 +147,22 @@ function App() {
 
       <div className="example-container">
         <TransitionArray />
-        <div style={{ display: 'flex', flexDirection: "col", justifyContent: "center", alignItems: "center" }}>
+        <div style={{ display: 'flex', flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
           <span>
             Toggle Between Components
           </span>
           <div>
             <Toggle />
+          </div>
+          <div style={{ margin: "1rem", padding: "1rem" }}>
+            <OnMountTransitions />
+          </div>
+          <div style={{
+            backgroundColor: "#393900",
+            margin: "1rem", padding: "5rem",
+            color: 'yellow'
+          }}>
+
           </div>
         </div>
       </div>
