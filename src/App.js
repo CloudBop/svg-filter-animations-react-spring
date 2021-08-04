@@ -17,6 +17,7 @@ import TransitionArray from './Components/OfficialRepoExamples/TransitionsExampl
 import OnMountTransitions from './Components/OfficialRepoExamples/TransitionsExamplesHooks/OnMountTransitions'
 import Toggle from './Components/OfficialRepoExamples/TransitionsExamplesHooks/ToggleBetweenComponents';
 import ItemsTransition from './Components/OfficialRepoExamples/TransitionsExamplesHooks/SingleItemTransition';
+import { AsyncExampleSpring as FlashingTextScripted, SpringChainExample } from './Components/AsyncExamples/FlashingTextScripted/FlashingTextScripted';
 // import { useAnimationFrame } from './hooks/useAnimationFrame';
 function App() {
   const [ui, setUi] = useState({
@@ -155,15 +156,18 @@ function App() {
             <Toggle />
           </div>
           <div style={{ margin: "1rem", padding: "1rem" }}>
-            <OnMountTransitions />
+            <SpringChainExample />
           </div>
           <div style={{
-            backgroundColor: "#393900",
-            margin: "1rem", padding: "5rem",
-            color: 'yellow'
+            // backgroundColor: "#393900",
+            // margin: "1rem", padding: "5rem",
+            // color: 'yellow'
           }}>
-
+            {/* <FlashingTextScripted /> */}
           </div>
+        </div>
+        <div style={{ margin: "1rem", padding: "1rem" }}>
+          <OnMountTransitions />
         </div>
       </div>
 
