@@ -12,11 +12,15 @@ export default function FractalContainer() {
   })
 
   useEffect(() => {
-    window.requestAnimationFrame(() => {
-      // this fix works, but errors could be thrown on unmount as setTime could be called on unmount.
+    const frame = window.requestAnimationFrame(() => {
       setTime(Date.now())
     })
-  }, [time])
+    // ran if rerendered and if unmounted. STOP this effect
+    return () => {
+      // this fix also accounts for mounting and unmounting components 
+      window.cancelAnimationFrame(frame)
+    }
+  })
 
   return (
     <FractalTreeFrame
