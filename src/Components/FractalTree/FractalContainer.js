@@ -20,6 +20,7 @@ export default function FractalContainer() {
     <FractalTreeFrame
       mousePosition={mousePosition}
       onMouseMove={({ clientX: x, clientY: y }) =>
+        // this will trigger two raf slowing everything +framerate
         setMousePosition({ x, y })
       }
       time={time}
