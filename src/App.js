@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import { Water } from './Components/Modules/';
 import FogEffect from './Components/Modules/FogEffect/FogEffect';
@@ -29,6 +29,26 @@ function App() {
   const [textTrailMessage, setTextTrailMessage] = useState('')
   const [textTrailMessageToAnimate, setTextTrailMessageToAnimate] = useState('')
   const [isTextAnimationOn, setIsTextAnimationOn] = useState(false)
+
+  useEffect(() => {
+
+    // If there's a username to validate, schedule validation for
+    // 500ms in the future.
+    let timeout = setTimeout(() => {
+      setIsTextAnimationOn(true)
+    }, 500)
+
+    let timeoff = setTimeout(() => {
+      setIsTextAnimationOn(false)
+    }, 1500)
+
+    return () => {
+      // If the timeout hasn't already run, then clear it, as it is
+      // no longer needed.
+      clearTimeout(timeout)
+      clearTimeout(timeoff)
+    }
+  }, [textTrailMessage])
 
   return (
     <div className="App">
@@ -121,7 +141,7 @@ function App() {
 
         <input type="text" value={textTrailMessage} onChange={(e) => setTextTrailMessage(e.target.value)} />
         <button onClick={() => {
-          setTextTrailMessageToAnimate(textTrailMessage)
+          // setTextTrailMessageToAnimate(textTrailMessage)
           setIsTextAnimationOn(true)
 
           setTimeout(() => {
@@ -134,7 +154,7 @@ function App() {
           <p>true</p> : <p>false</p>
         }
 
-        <TextTransitionFromColinrTech on={isTextAnimationOn} message={textTrailMessageToAnimate} />
+        <TextTransitionFromColinrTech on={isTextAnimationOn} message={textTrailMessage} />
       </div>
 
       <div className="example-container">
