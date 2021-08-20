@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import FractalTreeFrame from './FractalTreeFrame'
 
 // The height and width of the entire window
@@ -11,16 +11,19 @@ export default function FractalContainer() {
     y: innerHeight / 2,
   })
 
-  window.requestAnimationFrame(() => {
-    // Update time to trigger a re-render
-    setTime(Date.now())
-  })
+  useEffect(() => {
+    window.requestAnimationFrame(() => {
+      // this fix works, but errors could be thrown on unmount as setTime could be called on unmount.
+      setTime(Date.now())
+    })
+  }, [time])
 
   return (
     <FractalTreeFrame
       mousePosition={mousePosition}
       onMouseMove={({ clientX: x, clientY: y }) =>
-        // this will trigger two raf slowing everything +framerate
+        // this will trigger rerender, causing two raf slowing everything +framerate
+        // useEffect fixes this
         setMousePosition({ x, y })
       }
       time={time}
