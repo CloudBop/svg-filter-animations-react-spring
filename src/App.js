@@ -18,6 +18,7 @@ import OnMountTransitions from './Components/OfficialRepoExamples/TransitionsExa
 import Toggle from './Components/OfficialRepoExamples/TransitionsExamplesHooks/ToggleBetweenComponents';
 import ItemsTransition from './Components/OfficialRepoExamples/TransitionsExamplesHooks/SingleItemTransition';
 import { AsyncExampleSpring as FlashingTextScripted, SpringChainExample } from './Components/AsyncExamples/FlashingTextScripted/FlashingTextScripted';
+import FractalContainer from './Components/FractalTree/FractalContainer';
 // import { useAnimationFrame } from './hooks/useAnimationFrame';
 function App() {
   const [ui, setUi] = useState({
@@ -171,6 +172,11 @@ function App() {
         </div>
       </div>
 
+      <div className="example-container">
+        <div style={{ position: 'relative', margin: "1rem", padding: "1rem", width: "100%", height: "100%" }}>
+          <FractalContainer />
+        </div>
+      </div>
     </div>
   );
 }
