@@ -5,9 +5,15 @@ import FractalTreeFrame from './FractalTreeFrame'
 export const { innerHeight, innerWidth } = window
 
 export default function FractalContainer() {
+  const [time, setTime] = useState(Date.now())
   const [mousePosition, setMousePosition] = useState({
     x: innerWidth / 2,
     y: innerHeight / 2,
+  })
+
+  window.requestAnimationFrame(() => {
+    // Update time to trigger a re-render
+    setTime(Date.now())
   })
 
   return (
@@ -16,7 +22,7 @@ export default function FractalContainer() {
       onMouseMove={({ clientX: x, clientY: y }) =>
         setMousePosition({ x, y })
       }
-      time={Date.now()}
+      time={time}
     />
   )
 }
