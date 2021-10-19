@@ -12,6 +12,7 @@ import TransitionBoxes from './Components/TransitionBoxes'
 
 import TextTransitionFromColinrTech from './Components/TransitionTrailChainNew/TransitionTrailChainBoxes'
 import BoxExplosionChain from './Components/OfficialRepoExamples/BoxExplosionChain/BoxExplosionChain';
+import TransitionText from "./Components/TransitionText/TransitionText"
 import TrailTextExample from './Components/OfficialRepoExamples/TrailTextExample/TrailTextExample'
 import TransitionArray from './Components/OfficialRepoExamples/TransitionsExamplesHooks/TransitionArray'
 import OnMountTransitions from './Components/OfficialRepoExamples/TransitionsExamplesHooks/OnMountTransitions'
@@ -19,6 +20,7 @@ import Toggle from './Components/OfficialRepoExamples/TransitionsExamplesHooks/T
 import ItemsTransition from './Components/OfficialRepoExamples/TransitionsExamplesHooks/SingleItemTransition';
 import { AsyncExampleSpring as FlashingTextScripted, SpringChainExample } from './Components/AsyncExamples/FlashingTextScripted/FlashingTextScripted';
 import FractalContainer from './Components/FractalTree/FractalContainer';
+import ModalWrapper from './Components/UserInterface/Modal/Modal';
 // import { useAnimationFrame } from './hooks/useAnimationFrame';
 function App() {
   const [ui, setUi] = useState({
@@ -155,6 +157,7 @@ function App() {
         }
 
         <TextTransitionFromColinrTech on={isTextAnimationOn} message={textTrailMessage} />
+        <TransitionText on={isTextAnimationOn} message={textTrailMessage} />
       </div>
 
       <div className="example-container">
@@ -195,6 +198,11 @@ function App() {
       <div className="example-container">
         <div style={{ position: 'relative', margin: "1rem", padding: "1rem", width: "100%", height: "100%" }}>
           <FractalContainer />
+        </div>
+      </div>
+      <div className="example-container">
+        <div style={{ position: 'relative', margin: "1rem", padding: "1rem", width: "100%", height: "100%" }}>
+          <ModalWrapper />
         </div>
       </div>
     </div>
