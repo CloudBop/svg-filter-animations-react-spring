@@ -28,7 +28,8 @@ const Chain = () => {
     // known bug/behaviour with v9. both animations happen together
     // timers in seconds
     // disadvantages, loses spring like UX. IE user cannot cancel animation until second trigger.
-    [0, 0.25]);
+    // [0, 0.25]
+  );
   //
   return (
     <div className={'full-width-height'}>

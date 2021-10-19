@@ -13,9 +13,9 @@ const Chain = () => {
     // to: { size: on ? '100%' : '20%' },
     x: on ? "100%" : "20%",
     // from: { size: on ? '100%' : '20%' }
-    // config: {
-    //   duration: 2000
-    // }
+    config: {
+      duration: 2000
+    }
   });
   //
   //
@@ -30,29 +30,31 @@ const Chain = () => {
   });
 
   // this triggers all animations at once
-  // useChain(on ? [springRef, transitionRef] : [transitionRef, springRef], [0, 1]);
+  useChain(on ? [springRef, transitionRef] : [transitionRef, springRef],
+    // [0, 1]
+  );
   // 
 
   // useChain mimicry
-  useEffect(() => {
-    // beware async stuff happens here
-    // (async () => { await my be better
-    if (on) {
-      let [promise] = springRef.start()
-      promise.then(() => {
-        transitionRef.start()
-        // setTimeout(()=>, 0)
-      })
-    } else {
-      (function () {
-        let p = transitionRef.start()
-        // assume fifo
-        let finalitem = p.length - 1
-        // prom && prom.
-        p?.[finalitem]?.then(() => springRef.start())
-      }())
-    }
-  }, [on, springRef, transitionRef])
+  // useEffect(() => {
+  //   // beware async stuff happens here
+  //   // (async () => { await my be better
+  //   if (on) {
+  //     let [promise] = springRef.start()
+  //     promise.then(() => {
+  //       transitionRef.start()
+  //       // setTimeout(()=>, 0)
+  //     })
+  //   } else {
+  //     (function () {
+  //       let p = transitionRef.start()
+  //       // assume fifo
+  //       let finalitem = p.length - 1
+  //       // prom && prom.
+  //       p?.[finalitem]?.then(() => springRef.start())
+  //     }())
+  //   }
+  // }, [on, springRef, transitionRef])
 
   return (
     <div className={'full-height'}>
