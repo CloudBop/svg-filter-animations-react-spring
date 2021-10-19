@@ -69,7 +69,7 @@ header > div {
   }
 }
 
-.example-container{
+.example-container {
   box-sizing: border-box;
   width: 100vw;
   height: 100vh;
@@ -78,14 +78,14 @@ header > div {
   padding: 1rem;
 }
 
-.example-container-50{
+.example-container-50 {
   box-sizing: border-box;
   width: 50%;
   background-color: rgb(36, 31, 34);
   color: rgb(93, 127, 230);
   padding: 1rem;
 }
-.example-container > div> span {
+.example-container > div > span {
   margin: 0 1rem;
   font-size: 2rem;
   width: 0.5rem;
@@ -130,8 +130,32 @@ header > div {
   width: 100vw;
 }
 
-
 .box-group-container {
   width: 20%;
   height: 20%;
+}
+
+.modal {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.modal-card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  max-width: 50vh;
+  min-height: 50vh;
+  width: 100%;
+}
+
+.modal-card h1 {
+  color: black;
 }
